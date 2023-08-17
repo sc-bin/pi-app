@@ -1,34 +1,18 @@
-#ifndef __LCD_H
-#define __LCD_H		
-
-/////////////////////////////////////用户配置区///////////////////////////////////	 
-//支持横竖屏快速定义切换
-//////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////////	  
-//定义LCD的尺寸
-#define LCD_W 320
-#define LCD_H 480
+#ifndef __SETTING_H
+#define __SETTING_H		
 
 #include <stdint.h>
 
-//LCD的画笔颜色和背景色	   
-extern uint16_t  POINT_COLOR;//默认红色    
-extern uint16_t  BACK_COLOR; //背景颜色.默认为白色
-//LCD重要参数集
-typedef struct  
-{										    
-	uint16_t width;			//LCD 宽度
-	uint16_t height;			//LCD 高度
-	uint16_t id;				//LCD ID
-	uint8_t  dir;			//横屏还是竖屏控制：0，竖屏；1，横屏。	
-	uint16_t	 wramcmd;		//开始写gram指令
-	uint16_t  setxcmd;		//设置x坐标指令
-	uint16_t  setycmd;		//设置y坐标指令	 
-}_lcd_dev; 	
+//定义LCD的尺寸
+#define LCD_W 320
+#define LCD_H 480
+#define LCD_ROTATIONS 90
 
-//LCD参数
-extern _lcd_dev lcddev;	//管理LCD重要参数
+
+#define DEV_SPI "/dev/spidev1.1"
+#define SPI_RUN_SPEED_HZ 30 * 1000 * 1000
+#define PIN_DC 5
+
 
 
 //画笔颜色

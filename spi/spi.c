@@ -9,7 +9,7 @@
 #define DEV_SPI "/dev/spidev1.1"
 static uint32_t SPI_MODE = SPI_MODE_0;
 static uint8_t BITS_PER_WORD = 8;
-static uint32_t SPEED = 10*1000*1000;
+static uint32_t SPEED = 60*1000*1000;
 
 void spi_init()
 {
