@@ -17,11 +17,11 @@ int fd;
 static void LCD_Reset(void)
 {
     // printf("start reset\r\n");
-    digitalWrite(6, HIGH);
+    digitalWrite(PIN_RST, HIGH);
     usleep(300000);
-    digitalWrite(6, LOW);
+    digitalWrite(PIN_RST, LOW);
     usleep(300000);
-    digitalWrite(6, HIGH);
+    digitalWrite(PIN_RST, HIGH);
     usleep(300000);
     // printf("end reset\r\n");
 }
@@ -45,6 +45,7 @@ void spi_init()
         printf("err: can't set max speed hz");
     wiringPiSetup();
     pinMode(PIN_DC, OUTPUT);
+    pinMode(PIN_RST, OUTPUT);
     LCD_Reset();
 }
 // mosi跟miso同时工作，从tx_buf中取出数据发送的同时，也会读取数据存入rx_buf

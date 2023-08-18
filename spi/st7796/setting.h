@@ -3,15 +3,14 @@
 
 #include <stdint.h>
 
-//定义LCD的尺寸
-#define LCD_W 320
-#define LCD_H 480
+// 初始化时旋转角度
 #define LCD_ROTATIONS 90
 
 
 #define DEV_SPI "/dev/spidev1.1"
 #define SPI_RUN_SPEED_HZ 30 * 1000 * 1000
 #define PIN_DC 5
+#define PIN_RST 5
 
 
 

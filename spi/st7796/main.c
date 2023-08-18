@@ -7,47 +7,38 @@
 #include <sys/ioctl.h>
 #include <wiringPi.h>
 #include <time.h>
-#include "setting.h"
-#include "hw_spi.h"
 
+#include "setting.h"
 #include "lcd.h"
 
-#define c1 0xf800
-#define c2 0x7e0
-#define c3 0x1f
-#define use_color c1
+int random_range(int min, int max)
+{
+    int num = rand() % (max - min + 1) + min;
+    srand(time(NULL) + num);
+    return num;
+}
 
 int main()
 {
-
-    spi_init();
     LCD_Init();
-    LCD_FULL_RGB565(0x001f);
+    LCD_FULL(0x0000);
 
-    // while(1)
-    // {
-    //     LCD_Clear(c1);
-    //     LCD_Clear(0);
-    //     LCD_Clear(c2);
-    //     LCD_Clear(0);
-    //     LCD_Clear(c3);
-    //     LCD_Clear(0);
+    int x1, x2;
+    int y1, y2;
+    while (1)
+    {
+        LCD_area(RED, 0, 0, 480 / 3 - 1, 100);
+        LCD_area(GREEN, 480 / 3, 0, 480 / 3 * 2 - 1, 100);
+        LCD_area(BLUE, 480 / 3 * 2, 0, 480 - 1, 100);
 
-    // }
+        x1 = random_range(0, 480);
+        x2 = random_range(x1, 480);
+        y1 = random_range(100, 320);
+        y2 = random_range(y1, 320);
+        LCD_area(random_range(0, 0xffff), x1, y1, x2, y2);
+        sleep(1);
+    }
 
-    // LCD_SetWindows(50, 50, 100, 100);
-    // for (int i = 0; i < 50 * 50; i++)
-    // {
-    //     LCD_WR_DATA(0XFf);
-    //     LCD_WR_DATA(0xe0);  //red
-
-
-    // }
-
-
-    uint16_t a = 0xabcd;
-    uint8_t *p = &a;
-    printf("p=%x\r\n", *p);
 
     return 0;
 }

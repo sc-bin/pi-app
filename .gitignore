@@ -7,3 +7,4 @@ pwm/pwm
 spi/spi
 spi/ili9488/ili9488
 uart/uart
+spi/st7796/lcd.c
