@@ -8,3 +8,4 @@ spi/spi
 spi/ili9488/ili9488
 uart/uart
 spi/st7796/lcd.c
+spi/st7796/st7796
