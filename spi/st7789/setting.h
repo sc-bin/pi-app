@@ -8,9 +8,9 @@
 
 
 #define DEV_SPI "/dev/spidev1.0"
-#define SPI_RUN_SPEED_HZ 30 * 1000 * 1000
+#define SPI_RUN_SPEED_HZ 2 * 1000 * 1000
 #define PIN_DC 5
-#define PIN_RST 5
+#define PIN_RST 6
 
 
 

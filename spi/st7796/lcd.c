@@ -121,6 +121,7 @@ void LCD_Init(void)
 
 void LCD_SetWindows(uint16_t xStar, uint16_t yStar, uint16_t xEnd, uint16_t yEnd)
 {
+    
     LCD_WR_REG(0x2A);
     LCD_WR_DATA(xStar >> 8);
     LCD_WR_DATA(0x00FF & xStar);
